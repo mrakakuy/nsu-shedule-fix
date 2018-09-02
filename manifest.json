@@ -16,7 +16,7 @@
 	},
 
 	"permissions": [
-		"webNavigation", "tabs", "activeTab", "https://table.nsu.ru/group/*"
+		"storage", "webNavigation", "tabs", "activeTab", "https://table.nsu.ru/group/*"
 	],
 
     "icons": { // Lmao
