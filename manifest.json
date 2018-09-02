@@ -1,13 +1,13 @@
 {
 	"manifest_version": 2,
 
-    "name": "NSU Shedules fixes",
+    "name": "NSU Shedule fixes",
     "version": "0.1",
     "description": "Plugin that adds fixes to NSU shedule table",
 
     "browser_action": {
         "default_popup": "popup.html",
-        "default_icon": "favicon.ico"
+        "default_icon": "favicons.png"
     },
 
     "background": {
@@ -20,9 +20,9 @@
 	],
 
     "icons": { // Lmao
-        "16": "favicon.ico",
-        "32": "favicon.ico",
-        "48": "favicon.ico",
-        "128": "favicon.ico"
+        "16": "favicons.png",
+        "32": "favicons.png",
+        "48": "favicons.png",
+        "128": "favicons.png"
     }
  }
