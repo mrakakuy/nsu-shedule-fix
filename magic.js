@@ -15,7 +15,7 @@ function doMagic() {
 
 	    	// Note: hardcoded lmao
 			loadScript("https://cdn.rawgit.com/Dimonchik0036/schedule-fix-provider/master/fit_schedule.js", true, false);
-			loadScript("https://cdn.rawgit.com/MrAkakuy/nsu-shedule-fix/master/sheduler.js", false, true); // that's completely gay, sorry
+			loadScript("https://cdn.rawgit.com/MrAkakuy/nsu-shedule-fix/56f8eb36/sheduler.js", false, true); // that's completely gay, sorry
 	    } else {
 	    	console.error(chrome.runtime.error);
 	    }
