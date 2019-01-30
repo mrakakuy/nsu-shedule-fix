@@ -1,4 +1,4 @@
-var specs = [ // TODO: ??? hardcoded
+var specs1 = [ // TODO: ??? hardcoded
 	{ 
 		name: "ВРМП",
 		fullName: "Введение в разработку мобильных приложений -- КафСИ"
@@ -45,6 +45,41 @@ var specs = [ // TODO: ??? hardcoded
 	}
 ];
 
+var specs2 = [
+	{ 
+		name: "Програм. микроконтр.",
+		fullName: "Программируемые микроконтроллеры -- КафКТ" 
+	},
+	{ 
+		name: "Парадигмы программ.",
+		fullName: "Парадигмы программирования -- КафСИ" 
+	},
+	{ 
+		name: "Моделирование",
+		fullName: "Моделирование -- КафКС" 
+	},
+	{ 
+		name: "С# и платф.NET",
+		fullName: "Введение в C# и платформу. NET -- КафОИ" 
+	},
+	{ 
+		name: "Введ. в профессию",
+		fullName: "Введение в профессию -- КафСИ" 
+	},
+	{ 
+		name: "Комбинат. алгоритмы",
+		fullName: "Комбинаторные алгоритмы -- КафДАиИО" 
+	},
+	{ 
+		name: "Информ. поиск",
+		fullName: "Информационный поиск -- КафОИ" 
+	},
+	{ 
+		name: "ВвОСиИ",
+		fullName: "Введение в обработку сигналов и изображений -- КафКТ" 
+	}
+];
+
 
 function showError(err) {
 	var p = document.createElement("p");
@@ -65,10 +100,15 @@ function info(inf) {
 function saveParams() {
 	var choosen = [];
 
-	var all = document.getElementById("specs").children
+	var all = document.getElementById("specs1").children
 	for (var i = 0; i < all.length; ++i) {
 		if (all[i].getElementsByTagName("input")[0].checked)
-			choosen.push(specs[i].name);
+			choosen.push(specs1[i].name);
+	}
+	var all = document.getElementById("specs2").children
+	for (var i = 0; i < all.length; ++i) {
+		if (all[i].getElementsByTagName("input")[0].checked)
+			choosen.push(specs2[i].name);
 	}
 
 	chrome.storage.sync.set({"nsu-shed-specs": choosen.join(",") }, function() {
@@ -94,7 +134,7 @@ function apply() {
 
 document.getElementById("apply").onclick = apply;
 
-specs.forEach(function (elem, i) {
+var addingFunction = function(elem, i, block) {
 	var div = document.createElement("div");
 
 	var checkBox = document.createElement("input");
@@ -107,15 +147,24 @@ specs.forEach(function (elem, i) {
 
 	div.appendChild(checkBox);
 	div.appendChild(label);
-	document.getElementById("specs").appendChild(div);
-});
+	document.getElementById(block).appendChild(div);
+};
+
+specs1.forEach(function (elem, i) { addingFunction(elem, i, "specs1"); });
+specs2.forEach(function (elem, i) { addingFunction(elem, i, "specs2"); });
 
 
 chrome.storage.sync.get("nsu-shed-specs", function(result) {
     if (!chrome.runtime.error && result["nsu-shed-specs"] != undefined) {
     	var choosen = result["nsu-shed-specs"].split(",");
     	
-    	var all = document.getElementById("specs").children
+    	var all = document.getElementById("specs1").children
+		for (var i = 0; i < all.length; ++i) {
+			var el = all[i].getElementsByTagName("input")[0];
+			if (choosen.includes(specs[parseInt(el.value)].name))
+				el.checked = true;
+		}
+		var all = document.getElementById("specs2").children
 		for (var i = 0; i < all.length; ++i) {
 			var el = all[i].getElementsByTagName("input")[0];
 			if (choosen.includes(specs[parseInt(el.value)].name))
