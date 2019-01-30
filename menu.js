@@ -161,13 +161,13 @@ chrome.storage.sync.get("nsu-shed-specs", function(result) {
     	var all = document.getElementById("specs1").children
 		for (var i = 0; i < all.length; ++i) {
 			var el = all[i].getElementsByTagName("input")[0];
-			if (choosen.includes(specs[parseInt(el.value)].name))
+			if (choosen.includes(specs1[parseInt(el.value)].name))
 				el.checked = true;
 		}
 		var all = document.getElementById("specs2").children
 		for (var i = 0; i < all.length; ++i) {
 			var el = all[i].getElementsByTagName("input")[0];
-			if (choosen.includes(specs[parseInt(el.value)].name))
+			if (choosen.includes(specs2[parseInt(el.value)].name))
 				el.checked = true;
 		}
     }
