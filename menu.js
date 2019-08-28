@@ -80,6 +80,61 @@ var specs2 = [
 	}
 ];
 
+var specs3 = [
+	{ 
+		name: "Введ. в ГИС-техн.",
+		fullName: "Введение в ГИС-технологии -- КафСИ" 
+	},
+	{ 
+		name: "Программир. на C#",
+		fullName: "Продвинутое программирование на С# -- КафCИ" 
+	},
+	{ 
+		name: "КРПО",
+		fullName: "Коллективная разработка программного обеспечения -- КафОИ" 
+	},
+	{ 
+		name: "МиМИИ",
+		fullName: "Модели и методы искусственного интеллекта -- КафСИ" 
+	},
+	{ 
+		name: "СТЗ",
+		fullName: "Системы технического зрения -- КафКТ" 
+	},
+	{ 
+		name: "ВОРВ",
+		fullName: "Введение в организацию распределенных вычислений -- КафПВ" 
+	},
+	{ 
+		name: "ИСИС",
+		fullName: "Инжиниринг современных информационных систем -- КафКТ" 
+	},
+	{ 
+		name: "ИАД",
+		fullName: "Интеллектуальный анализ данных -- КафОИ" 
+	},
+	{ 
+		name: "КИТ",
+		fullName: "Криптография для информационных технологий -- КафКС" 
+	},
+	{ 
+		name: "Распред. алгоритмы",
+		fullName: "Распределенные алгоритмы -- КафСИ" 
+	},
+	{ 
+		name: "Мет. визуал. информ.",
+		fullName: "Методы визуализации информации при помощи графов -- КафСИ" 
+	},
+	{ 
+		name: "ОП Java-программ",
+		fullName: "Оптимизация производительности Java-программ -- КафСИ" 
+	},
+	{ 
+		name: "Психология в ИТ",
+		fullName: "Психология в информационных технологиях -- КафОИ" 
+	}
+];
+
 
 function showError(err) {
 	var p = document.createElement("p");
@@ -109,6 +164,11 @@ function saveParams() {
 	for (var i = 0; i < all.length; ++i) {
 		if (all[i].getElementsByTagName("input")[0].checked)
 			choosen.push(specs2[i].name);
+	}
+	var all = document.getElementById("specs3").children
+	for (var i = 0; i < all.length; ++i) {
+		if (all[i].getElementsByTagName("input")[0].checked)
+			choosen.push(specs3[i].name);
 	}
 
 	chrome.storage.sync.set({"nsu-shed-specs": choosen.join(",") }, function() {
@@ -152,6 +212,7 @@ var addingFunction = function(elem, i, block) {
 
 specs1.forEach(function (elem, i) { addingFunction(elem, i, "specs1"); });
 specs2.forEach(function (elem, i) { addingFunction(elem, i, "specs2"); });
+specs3.forEach(function (elem, i) { addingFunction(elem, i, "specs3"); });
 
 
 chrome.storage.sync.get("nsu-shed-specs", function(result) {
@@ -168,6 +229,12 @@ chrome.storage.sync.get("nsu-shed-specs", function(result) {
 		for (var i = 0; i < all.length; ++i) {
 			var el = all[i].getElementsByTagName("input")[0];
 			if (choosen.includes(specs2[parseInt(el.value)].name))
+				el.checked = true;
+		}
+		var all = document.getElementById("specs3").children
+		for (var i = 0; i < all.length; ++i) {
+			var el = all[i].getElementsByTagName("input")[0];
+			if (choosen.includes(specs3[parseInt(el.value)].name))
 				el.checked = true;
 		}
     }
