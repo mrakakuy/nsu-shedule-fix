@@ -14,8 +14,8 @@ function doMagic() {
 	    	document.cookie = "nsu-shed-specs=" + result["nsu-shed-specs"];
 
 	    	// Note: hardcoded lmao
-			loadScript("https://cdn.jsdelivr.net/gh/MrAkakuy/nsu-shedule-fix@40fb1e43fa0e2f49fa2b92c6a74bf3bb2d25c504/fit_schedule.js", true, false);
-			loadScript("https://cdn.jsdelivr.net/gh/MrAkakuy/nsu-shedule-fix@40fb1e43fa0e2f49fa2b92c6a74bf3bb2d25c504/sheduler.js", false, true); // that's completely gay, sorry
+			loadScript("https://cdn.jsdelivr.net/gh/MrAkakuy/nsu-shedule-fix@1e893b158f1cdd250555646de2429fe023b419d2/fit_schedule.js", true, false);
+			loadScript("https://cdn.jsdelivr.net/gh/MrAkakuy/nsu-shedule-fix@1e893b158f1cdd250555646de2429fe023b419d2/sheduler.js", false, true); // that's completely gay, sorry
 	    } else {
 	    	console.error(chrome.runtime.error);
 	    }
