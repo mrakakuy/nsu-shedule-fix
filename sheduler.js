@@ -15,6 +15,7 @@ var specs = [ // TODO: ??? hardcoded
 
 
 specs.forEach(function (elem) {
+	alert(elem);
 	removeLessonEntries(elem);
 });
 

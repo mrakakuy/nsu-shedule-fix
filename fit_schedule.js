@@ -50,6 +50,8 @@ function compareLesson(lhs, rhs) {
 }
 
 function findLessonEntriesFromDocument(doc, names) {
+    console.log(names);
+
     return [].slice.call(doc.querySelectorAll("div .cell"))
         .filter(cell => cell.childElementCount > 1 && names.includes(cell.children[1].textContent));
 }
