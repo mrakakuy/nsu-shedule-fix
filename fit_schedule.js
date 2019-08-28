@@ -50,8 +50,6 @@ function compareLesson(lhs, rhs) {
 }
 
 function findLessonEntriesFromDocument(doc, names) {
-    [].slice.call(doc.querySelectorAll("div .cell")).filter(cell => cell.childElementCount > 1).forEach(cell => console.log(cell.children[1].textContent.trim()));
-
     return [].slice.call(doc.querySelectorAll("div .cell"))
         .filter(cell => cell.childElementCount > 1 && names.includes(cell.children[1].textContent.trim()));
 }
